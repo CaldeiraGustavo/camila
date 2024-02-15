@@ -1,0 +1,279 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <script src="https://code.jquery.com/jquery-3.7.1.min.js"
+        integrity="sha256-/JqT3SQfawRcv/BIHPThkBvs0OEvtFFmqPF/lYI/Cxo=" crossorigin="anonymous"></script>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=0.5, minimum-scale=0.5">
+    <title>Camila</title>
+
+    <style>
+        @import url('https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/fontawesome.min.css');
+
+        body {
+            font-family: 'Lora';
+            font-size: 17px;
+            line-height: 1.5;
+            background-color: #fff;
+            background-image: url('./background.png');
+            background-attachment: scroll;
+        }
+
+        .box {
+            background: #e91e63;
+            padding: 60px 60px;
+            color: #fff;
+            width: 50%;
+            text-align: center;
+            margin: 10vh auto;
+            position: relative;
+            box-shadow: 0px 5px 10px rgba(0, 0, 0, 0.5);
+        }
+
+        .box h3 {
+            font-size: 30px;
+            font-weight: 400;
+            text-transform: uppercase;
+            margin: 5px;
+        }
+
+        .top-border:before {
+            content: '';
+            width: 71px;
+            height: 71px;
+            position: absolute;
+            background: url(./corner.png);
+            background-size: cover;
+            top: 20px;
+            left: 20px;
+            rotate: 90deg;
+        }
+
+        .top-border:after {
+            content: '';
+            width: 71px;
+            height: 71px;
+            position: absolute;
+            background: url(./corner.png);
+            top: 20px;
+            right: 20px;
+            rotate: 90deg;
+        }
+
+        .bottom-border:before {
+            content: '';
+            width: 71px;
+            height: 71px;
+            position: absolute;
+            background: url(./corner.png);
+            background-size: cover;
+            top: 20px;
+            right: 20px;
+            rotate: 180deg;
+        }
+
+        .bottom-border:after {
+            content: '';
+            width: 71px;
+            height: 71px;
+            position: absolute;
+            background: url(./corner.png);
+            top: 20px;
+            right: 20px;
+            rotate: 180deg;
+        }
+
+        .box img {
+            width: 70px;
+        }
+
+        .love {
+            animation: pulse 1s ease infinite;
+            display: inline-block;
+        }
+
+        @keyframes pulse {
+            0% {
+                transform: scale(1);
+            }
+
+            50% {
+                transform: scale(1.3);
+            }
+
+            100% {
+                transform: scale(1);
+            }
+        }
+
+        .container {
+            position: relative;
+            margin-bottom: 2%;
+            width: 100%;
+        }
+
+        .image {
+            display: block;
+            width: 100%;
+            height: auto;
+        }
+
+        .button-like {
+            border: 2px solid #fff;
+            background-color: transparent;
+            text-decoration: none;
+            padding: 1rem;
+            position: relative;
+            vertical-align: middle;
+            text-align: center;
+            display: inline-block;
+            border-radius: 3rem;
+            color: #fff;
+            transition: all ease 0.4s;
+        }
+
+        .button-like span {
+            margin-left: 0.5rem;
+        }
+
+        .button-like .fa,
+        .button-like span {
+            transition: all ease 0.4s;
+        }
+
+        .button-like:focus {
+            background-color: transparent;
+        }
+
+        .button-like:focus .fa,
+        .button-like:focus span {
+            color: #fff;
+        }
+
+        .button-like:hover {
+            border-color: #ebcc9f;
+            background-color: transparent;
+        }
+
+        .button-like:hover .fa,
+        .button-like:hover span {
+            color: #ebcc9f;
+        }
+
+        .liked {
+            background-color: #ebcc9f;
+            border-color: #ebcc9f;
+        }
+
+        .liked .fa,
+        .liked span {
+            color: #fefefe;
+        }
+
+        .liked:focus {
+            background-color: #ebcc9f;
+        }
+
+        .liked:focus .fa,
+        .liked:focus span {
+            color: #fefefe;
+        }
+
+        .liked:hover {
+            background-color: #ebcc9f;
+            border-color: #ebcc9f;
+        }
+
+        .liked:hover .fa,
+        .liked:hover span {
+            color: #fefefe;
+        }
+
+
+
+        .overlay {
+            position: absolute;
+            top: 0;
+            bottom: 0;
+            left: 0;
+            right: 0;
+            height: 100%;
+            width: 100%;
+            opacity: 0;
+            transition: .5s ease;
+        }
+
+        .container:hover .overlay {
+            opacity: 1;
+        }
+
+        .text {
+            text-shadow: 2px 2px 5px red;
+            color: white;
+            font-size: 20px;
+            position: absolute;
+            top: 50%;
+            left: 50%;
+            -webkit-transform: translate(-50%, -50%);
+            -ms-transform: translate(-50%, -50%);
+            transform: translate(-50%, -50%);
+            text-align: center;
+        }
+    </style>
+</head>
+
+<body>
+    <div class="main">
+        <div class="box">
+            <div class="top-border"></div>
+            <img src="./rings.png" class="ring">
+            <h3> Camila <span class="love"> ❤︎ </span></h3>
+            <p>Já fazem quase 3 anos que a gente ta junto e eles foram ótimos.</p>
+            <p> Vamos juntos pelo resto da vida conquistar esse mundo e sermos felizes!</p>
+            <p id="par"> Casa comigo? </p>
+            <div class="container">
+                <img src="./porquinho1.jpg" id="heart" alt="Avatar" class="image" style="
+                        width: 40%;
+                        margin: auto;
+                    ">
+                <div class="overlay">
+                    <div class="text" id="texto">Pufavô</div>
+                </div>
+
+            </div>
+            <button class="button button-like" onclick="yes( )">
+                ❤︎
+                <span>Sim</span>
+            </button>
+            <button class="button button-like" onclick="no( )">
+                ❤︎
+                <span>Não</span>
+            </button>
+
+            <div class="bottom-border"></div>
+        </div>
+    </div>
+</body>
+<script>
+    $(document).foundation();
+
+    $(function () {
+        $('.button-like')
+            .bind('click', function (event) {
+                $(".button-like").toggleClass("liked");
+            })
+    });
+
+    function yes() {
+        document.getElementById("heart").src = "./porquinho2.jpg";
+        document.getElementById("texto").innerText = "Te amo-lhe";
+    }
+
+    function no() {
+        document.getElementById("heart").src = "./porquinho3.jpg";
+        document.getElementById("texto").innerText = "Nãããããao!!!!";
+    }
+</script>
+
+</html>
